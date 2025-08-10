@@ -1,6 +1,8 @@
-import React from 'react';
+import React from 'react'
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
+<<<<<<< HEAD
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
       {/* Main Footer Content */}
@@ -122,36 +124,34 @@ const Footer = () => {
               </div>
             </div>
           </div>
+=======
+ return (
+    <footer className='border-t bg-white text-gray-700 transition-colors duration-300'>
+      <div className='container mx-auto px-4 py-8 flex flex-col lg:flex-row justify-between items-center gap-4'>
+        
+        {/* Left: Branding */}
+        <div className='text-center lg:text-left'>
+          <h1 className='text-lg font-semibold text-gray-900'>Lanka Basket</h1>
+          <p className='text-sm'>© {new Date().getFullYear()} All Rights Reserved. Developed by Team Delta</p>
+>>>>>>> parent of a32d450 (Merge branch 'feature-system' into feature-main)
         </div>
+        
 
-
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="bg-gray-100 dark:bg-gray-800 py-4 mt-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              © {new Date().getFullYear()} Lanka Basket. All rights reserved. | Developed by Team Delta
-            </p>
-            <div className="flex items-center space-x-4 text-sm">
-              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200">
-                Privacy Policy
-              </a>
-              <span className="text-gray-400">|</span>
-              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200">
-                Terms of Service
-              </a>
-              <span className="text-gray-400">|</span>
-              <a href="#" className="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200">
-                Site Map
-              </a>
-            </div>
-          </div>
+        {/* Right: Social Media */}
+        <div className='flex gap-4 text-2xl justify-center'>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className='hover:text-blue-600 transition-colors duration-200'>
+            <FaFacebookF />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className='hover:text-pink-500 transition-colors duration-200'>
+            <FaInstagram />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className='hover:text-blue-700 transition-colors duration-200'>
+            <FaLinkedinIn />
+          </a>
         </div>
       </div>
     </footer>
   );
-};
+}
 
-export default Footer;
+export default Footer
