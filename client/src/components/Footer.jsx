@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Footer = () => {
+
   return (
     <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
       {/* Main Footer Content */}
