@@ -5,7 +5,7 @@ import Axios from '../utils/Axios'
 import AxiosToastError from '../utils/AxiosToastError'
 import CardProduct from '../components/CardProduct'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import { useSearchParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import noDataImage from '../assets/nothing here yet.webp'
 
 const SearchPage = () => {
@@ -14,8 +14,8 @@ const SearchPage = () => {
   const loadingArrayCard = new Array(10).fill(null)
   const [page,setPage] = useState(1)
   const [totalPage,setTotalPage] = useState(1)
-  const [searchParams] = useSearchParams()
-  const searchText = searchParams.get('q') || ''
+  const params = useLocation()
+  const searchText = params?.search?.slice(3)
 
   const fetchData = async() => {
     try {
@@ -23,7 +23,7 @@ const SearchPage = () => {
         const response = await Axios({
             ...SummaryApi.searchProduct,
             data : {
-              search : searchText,
+              search : searchText ,
               page : page,
             }
         })
@@ -52,14 +52,7 @@ const SearchPage = () => {
   }
 
   useEffect(()=>{
-    setPage(1)
-    setData([])
-  },[searchText])
-
-  useEffect(()=>{
-    if(searchText){
-      fetchData()
-    }
+    fetchData()
   },[page,searchText])
 
   console.log("page",page)
@@ -73,11 +66,7 @@ const SearchPage = () => {
   return (
     <section className='bg-white'>
       <div className='container mx-auto p-4'>
-        {searchText ? (
-          <p className='font-semibold'>Search Results for "{searchText}": {data.length} items found</p>
-        ) : (
-          <p className='font-semibold'>Enter a search term to find products</p>
-        )}
+        <p className='font-semibold'>Search Results: {data.length}  </p>
 
         <InfiniteScroll
               dataLength={data.length}
@@ -108,13 +97,13 @@ const SearchPage = () => {
 
               {
                 //no data 
-                !data[0] && !loading && searchText && (
+                !data[0] && !loading && (
                   <div className='flex flex-col justify-center items-center w-full mx-auto'>
                     <img
                       src={noDataImage} 
                       className='w-full h-full max-w-xs max-h-xs block'
                     />
-                    <p className='font-semibold my-2'>No products found for "{searchText}"</p>
+                    <p className='font-semibold my-2'>No Data found</p>
                   </div>
                 )
               }

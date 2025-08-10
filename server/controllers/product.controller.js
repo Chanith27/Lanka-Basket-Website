@@ -276,36 +276,11 @@ export const searchProduct = async(request,response)=>{
             limit  = 10
         }
 
-        let query = {}
-        
-        if(search && search.trim().length > 0){
-            const searchTerm = search.trim()
-            
-            // Enhanced regex search with word boundary and partial matching
-            const regexOptions = {
-                $regex: searchTerm,
-                $options: 'i' // case insensitive
+        const query = search ? {
+            $text : {
+                $search : search
             }
-            
-            // Also search for individual words in the search term
-            const words = searchTerm.split(/\s+/).filter(word => word.length > 0)
-            const wordQueries = words.map(word => ({
-                $or: [
-                    { name: { $regex: word, $options: 'i' } },
-                    { description: { $regex: word, $options: 'i' } }
-                ]
-            }))
-            
-            query = {
-                $or: [
-                    // Exact phrase match (higher priority)
-                    { name: regexOptions },
-                    { description: regexOptions },
-                    // Individual word matches
-                    ...wordQueries
-                ]
-            }
-        }
+        } : {}
 
         const skip = ( page - 1) * limit
 

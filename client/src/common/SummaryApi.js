@@ -161,11 +161,6 @@ const SummaryApi = {
         url: '/api/order/order-list',
         method: 'get'
     },
-    // Admin order management
-    getAllOrders: {
-        url: '/api/order/admin/get-all-orders',
-        method: 'post'
-    },
     // Admin user management
     getAllUsers: {
         url: '/api/user/admin/get-all-users',
