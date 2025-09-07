@@ -30,11 +30,11 @@ const userSchema = new mongoose.Schema({
         type : Boolean,
         default : false
     },
-    verify_email_otp : {
+    verify_email_token : {
         type : String,
         default : ""
     },
-    verify_email_otp_expiry : {
+    verify_email_token_expiry : {
         type : Date,
         default : ""
     },

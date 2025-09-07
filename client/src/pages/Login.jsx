@@ -244,7 +244,7 @@ const Login = () => {
                                     <div>
                                         <h3 className='font-semibold text-yellow-800'>Email Verification Required</h3>
                                         <p className='text-sm text-yellow-700'>
-                                            Please check your email for the 6-digit verification code
+                                            Please check your email and verify your account
                                         </p>
                                     </div>
                                 </div>
@@ -259,16 +259,9 @@ const Login = () => {
                                             Sending...
                                         </span>
                                     ) : (
-                                        'Resend Verification Code'
+                                        'Resend Verification Email'
                                     )}
                                 </button>
-                                <Link 
-                                    to="/verify-email" 
-                                    state={{ email: data.email }}
-                                    className='mt-3 w-full block text-center bg-blue-100 text-blue-700 py-3 rounded-lg font-medium hover:bg-blue-200 transition-all duration-300'
-                                >
-                                    Enter Verification Code
-                                </Link>
                             </div>
                         )}
                     </form>
