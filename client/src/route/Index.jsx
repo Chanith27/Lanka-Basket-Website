@@ -26,6 +26,9 @@ import CheckoutPage from "../pages/CheckoutPage";
 import Success from "../pages/Success";
 import Cancel from "../pages/Cancel";
 import VerifyEmail from "../pages/VerifyEmail";
+import TrackOrder from "../pages/TrackOrder";
+import Help from "../pages/Help";
+import StockManagement from "../pages/StockManagement";
 
 const router = createBrowserRouter([
     {
@@ -69,6 +72,14 @@ const router = createBrowserRouter([
                 element : <UserMenuMobile/>
             },
             {
+                path : "track-order",
+                element : <TrackOrder/>
+            },
+            {
+                path : "help",
+                element : <Help/>
+            },
+            {
                 path : "dashboard",
                 element : <Dashboard/>,
                 children : [
@@ -107,6 +118,10 @@ const router = createBrowserRouter([
                     {
                         path : 'user-management',
                         element : <AdminPermision><UserManagement/></AdminPermision>
+                    },
+                    {
+                        path : 'stock-management',
+                        element : <AdminPermision><StockManagement/></AdminPermision>
                     }
                 ]
             },

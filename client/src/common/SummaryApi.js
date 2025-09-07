@@ -5,7 +5,7 @@ const SummaryApi = {
         url: '/api/user/register',
         method: 'post'
     },
-    verifyEmail: {
+    verifyEmailOtp: {
         url: '/api/user/verify-email',
         method: 'post'
     },
@@ -117,6 +117,18 @@ const SummaryApi = {
         url: '/api/product/search-product',
         method: 'post'
     },
+    bulkUpdateStock: {
+        url: '/api/product/bulk-update-stock',
+        method: 'put'
+    },
+    getLowStockProducts: {
+        url: '/api/product/low-stock-products',
+        method: 'post'
+    },
+    getStockAnalytics: {
+        url: '/api/product/stock-analytics',
+        method: 'get'
+    },
     addTocart: {
         url: "/api/cart/create",
         method: 'post'
@@ -161,10 +173,26 @@ const SummaryApi = {
         url: '/api/order/order-list',
         method: 'get'
     },
+    getOrderById: {
+        url: '/api/order/order',
+        method: 'get'
+    },
+    confirmOrderDelivery: {
+        url: '/api/order/confirm-delivery',
+        method: 'put'
+    },
     // Admin order management
     getAllOrders: {
         url: '/api/order/admin/get-all-orders',
         method: 'post'
+    },
+    updatePackingStatus: {
+        url: '/api/order/admin/update-packing-status',
+        method: 'put'
+    },
+    updateShippingDetails: {
+        url: '/api/order/admin/update-shipping-details',
+        method: 'put'
     },
     // Admin user management
     getAllUsers: {
